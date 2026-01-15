@@ -1,0 +1,22 @@
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+
+[includeIf "gitdir:/home/chandrabhatta.sriram/Documents/repos/personal/"]
+	path = .gitconfig-personal
+
+[includeIf "gitdir:/home/chandrabhatta.sriram/Documents/repos/company/"]
+	path = .gitconfig-company
+
+[include]
+	path = ~/.delta/delta.gitconfig
+
+[user]
+	email = username@company.com
+	name = username
+
+[init]
+	defaultBranch = main
+
