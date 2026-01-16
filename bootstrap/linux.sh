@@ -1,15 +1,23 @@
 #!/bin/bash
 
 sudo apt update
+
+echo "Installing... git, tmux, ripgrep, fd-find, curl, openjdk-17-jdk"
 sudo apt install -y git tmux ripgrep fd-find curl openjdk-17-jdk
+echo "Completed Installtion"
 
 PACKAGES_DIR="$HOME/packages"
 mkdir -p "$PACKAGES_DIR"
 
-NVIM_LINUX_DIR="nvim-linux-x86_64"
+ARCH="$(arch)"
+NVIM_LINUX_DIR="nvim-linux-${ARCH}"
 curl -L https://github.com/neovim/neovim/releases/download/nightly/${NVIM_LINUX_DIR}.tar.gz | tar xzf - -C "${PACKAGES_DIR}"
 
-echo "Installing nvim..."
-NVIM_BIN_DIR="${PACKAGES_DIR}/${NVIM_LINUX_DIR}/bin"
-ln -s ~/usr/local/bin/ "${NVIM_BIN_DIR}/nvim"
+NVIM_BIN="${PACKAGES_DIR}/${NVIM_LINUX_DIR}/bin"
+
+echo "Linking nvim from ${NVIM_BIN} to ~/local/bin/nvim"
+ln -s "${NVIM_BIN}/nvim" "${HOME}.local/bin/nvim"
+
+echo "Linking fdfind from $(which fdfind) to ~/.local/bin/fd"
+ln -s "$(which fdfind)" "${HOME}/.local/bin/fd"
 
