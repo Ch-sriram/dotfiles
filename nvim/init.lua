@@ -110,3 +110,8 @@ vim.opt.cursorline = true
 -- Show vertical lines at these columns
 -- vim.opt.colorcolumn = "80,100"
 
+-- =========================
+-- Clipboard settings
+-- =========================
+vim.opt.clipboard = "unnamedplus"
+

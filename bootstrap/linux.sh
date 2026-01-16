@@ -2,9 +2,9 @@
 
 sudo apt update
 
-echo "Installing... git, tmux, ripgrep, fd-find, curl, openjdk-17-jdk"
-sudo apt install -y git tmux ripgrep fd-find curl openjdk-17-jdk
-echo "Completed Installtion"
+echo "Installing... git, xclip, tmux, ripgrep, fd-find, curl, openjdk-17-jdk"
+sudo apt install -y git xclip tmux ripgrep fd-find curl openjdk-17-jdk
+echo "Completed Installation"
 
 PACKAGES_DIR="$HOME/packages"
 mkdir -p "$PACKAGES_DIR"
