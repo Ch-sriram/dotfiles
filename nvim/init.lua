@@ -57,6 +57,10 @@ vim.api.nvim_create_user_command("JavaNew", function()
   require("utils.java_new").create_java_class()
 end, {})
 
+vim.api.nvim_create_user_command("MainBuild", function()
+  vim.cmd("AsyncRun -mode=term -cwd=" .. vim.fn.getcwd() .. " sh build.sh")
+end, {})
+
 vim.api.nvim_create_user_command("MvnBuild", function()
   vim.cmd("AsyncRun mvn test")
 end, {})
